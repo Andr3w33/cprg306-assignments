@@ -37,7 +37,7 @@ export default function NewItem () {
         >
           Decrease
         </button>
-        
+
         <button
           onClick={() => increment() } 
           disabled={quantity === 20}
