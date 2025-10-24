@@ -4,9 +4,8 @@ import { useState } from "react";
 import Item from "./item";
 
 export default function ItemList({ items }) {
-  const [sortBy, setSortBy] = useState("name"); // "name" | "category"
+  const [sortBy, setSortBy] = useState("name");
 
-  // work on a copy; never mutate props
   const sortedItems = [...items].sort((a, b) => {
     const A = String(a[sortBy]).toLowerCase();
     const B = String(b[sortBy]).toLowerCase();
@@ -20,7 +19,6 @@ export default function ItemList({ items }) {
 
   return (
     <section style={{ maxWidth: "600px", margin: "0 auto" }}>
-      {/* Sort controls */}
       <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "12px" }}>
         <span style={{ fontSize: "14px", color: "#555" }}>Sort by:</span>
 
@@ -50,8 +48,7 @@ export default function ItemList({ items }) {
           Category
         </button>
       </div>
-
-      {/* Items */}
+      
       <ul className="max-w-2xl mx-auto bg-white shadow-md rounded-lg overflow-hidden">
         {sortedItems.map(({ id, name, quantity, category }) => (
           <Item key={id} name={name} quantity={quantity} category={category} />
